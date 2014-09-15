@@ -6,8 +6,10 @@ import java.util.List;
 import models.Product;
 import models.StockItem;
 import models.Warehouse;
+import play.Logger;
 import play.mvc.Controller;
 import play.mvc.Result;
+import views.html.*;
 
 public class Application extends Controller {
 
@@ -27,12 +29,16 @@ public class Application extends Controller {
         item.warehouse = warehouse;
         warehouse.stock.add(item);
         
-        List<String> output = new LinkedList<String>();
-        output.add(String.format("My warehouse is called '%s'",warehouse));
-        output.add(String.format("It contains %d items",warehouse.stock.size()));
-        output.add(String.format("The first is: %s",warehouse.stock.get(0)));
+        product.save();
+        item.save();
+        Logger.info("hope we saved product & item");
+//        List<String> output = new LinkedList<String>();
+//        output.add(String.format("My warehouse is called '%s'",warehouse));
+//        output.add(String.format("It contains %d items",warehouse.stock.size()));
+//        output.add(String.format("The first is: %s",warehouse.stock.get(0)));
+//        
         
-        return ok(output.toString());
+        return ok(index.render("your new application is ready."));
     }
 
 }
