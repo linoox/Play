@@ -9,8 +9,8 @@ GET     /                           controllers.Application.index()
 GET     /assets/*file               controllers.Assets.at(path="/public", file)
 
 # routes for product catalog
-GET /products/						controllers.Products.list()
-GET /products/new					controllers.Products.showBlank()
-GET /products/:ean					controllers.Products.show(ean: Long)
-POST /products/						controllers.Products.save()
+# GET /products/						controllers.Products.list()
+# GET /products/new					controllers.Products.showBlank()
+# GET /products/:ean					controllers.Products.show(ean: Long)
+# POST /products/						controllers.Products.save()
 
